@@ -7,15 +7,17 @@ public class Notebook {
     private String operatingSystem;
     private int memory;
     private int storage;
+    private int price;
     
 
-    public Notebook(String brandName, String model, String color, String operatingSystem, int memory, int storage) {
+    public Notebook(String brandName, String model, String color, String operatingSystem, int memory, int storage, int price) {
         this.brandName = brandName;
         this.model = model;
         this.color = color;
         this.operatingSystem = operatingSystem;
         this.memory = memory;
         this.storage = storage;
+        this.price = price;
     }
 
     public String getBrandName() {
@@ -40,6 +42,10 @@ public class Notebook {
 
     public int getStorage() {
         return storage;
+    }
+
+    public int getPrice() {
+        return price;
     }
     
     public void setBrandName(String brandName) {
@@ -66,9 +72,13 @@ public class Notebook {
         this.storage = storage;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
-        return "Brand: " + brandName + ", Model: " + model +  ", Color: " + color + ", OS: " + operatingSystem + ", SysMemory: " + memory +" GB" + ", SSD Storage: " + storage+" GB";
+        return "Brand: " + brandName + ", Model: " + model +  ", Color: " + color + ", OS: " + operatingSystem + ", SysMemory: " + memory +" GB" + ", SSD Storage: " + storage+" GB" + ", Price: " + price + " USD";
     }
 
     @Override
@@ -76,11 +86,11 @@ public class Notebook {
         if (this == obj) return true;
         if (this == null  || getClass() != obj.getClass())  return false;
         Notebook notebook = (Notebook) obj;
-        return (this.brandName == notebook.brandName) && (this.model == notebook.model) && ( this.color == notebook.color) && (this.operatingSystem == notebook.operatingSystem) && (this.memory == notebook.memory) && (this.storage == notebook.storage);
+        return (this.brandName == notebook.brandName) && (this.model == notebook.model) && ( this.color == notebook.color) && (this.operatingSystem == notebook.operatingSystem) && (this.memory == notebook.memory) && (this.storage == notebook.storage) && (this.price == notebook.price);
     }
     
     @Override
     public int hashCode() {
-        return Objects.hash(brandName, model, color, operatingSystem, memory, storage);
+        return Objects.hash(brandName, model, color, operatingSystem, memory, storage, price);
     }
 }
